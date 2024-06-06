@@ -1,6 +1,6 @@
 import { Modal } from "../Modal";
 
-export const TodayWeather = ({data, mod, setMod, cityFilter, ok, err, ops, tcfn}) => {
+export const TodayWeather = ({data, mod, setMod, cityFilter, ok, err, ops, tcfn, setCity, city}) => {
 
   const icon = data?.weather?.[0]?.icon || '';
   const desc = data?.weather?.[0]?.main || '';
@@ -11,7 +11,7 @@ export const TodayWeather = ({data, mod, setMod, cityFilter, ok, err, ops, tcfn}
   return (
     <>
       {mod === true &&
-        <Modal setMod={setMod} cityFilter={cityFilter}/>
+        <Modal setMod={setMod} cityFilter={cityFilter} setCity={setCity} city={city}/>
       }
       <aside className="today-weather">
         <div className="today-container">

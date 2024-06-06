@@ -6,7 +6,6 @@ export const ListItem = ({key, title, max, min, icon, tcfn}) => {
                     <h6>{title}</h6>
                     <figure className="day-icon-container">
                         <img src={`/${icon}`} alt="icon" />
-                        {console.log(icon)}
                     </figure>
                     <div className="day-tems">
                         <p>{tcfn(max)}</p>

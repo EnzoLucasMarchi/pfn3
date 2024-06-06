@@ -19,14 +19,15 @@ function App() {
   const [dataF, setDataF] = useState({});
 
   const [location, setLocation] = useState({});
+  const [city, setCity] = useState('');
 
   const [measure, setMeasure] = useState(true);
   const [mod, setMod] = useState(false);
 
   //--------------------------------------------------------------------------------------------Funciones
-  const cityFilter = () => {
-    getData(url1, setDataC)
-    getData(url2, setDataF)
+  const cityFilter = (city) => {
+    getData(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`, setDataC)
+    getData(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`, setDataF)
   }
 
   const getData = async (url, fn) => {
@@ -75,16 +76,16 @@ function App() {
   //-------------------------------------------------------------------------------------------useEffects
 
   useEffect(() => {
-    getData(url1, setDataC);
-    getData(url2, setDataF);
+   cityFilter('Helsinki')
   }, []);
+
 
   //------------------------------------------------------------------------------------------------
 
   return (
     <>
     {
-      dataC && (<TodayWeather data={dataC} mod={mod} setMod={setMod} cityFilter={cityFilter}  ok={ok} err={err} ops={ops} tcfn={tempConvert}/>)
+      dataC && (<TodayWeather data={dataC} mod={mod} setMod={setMod} cityFilter={cityFilter}  ok={ok} err={err} ops={ops} tcfn={tempConvert} setCity={setCity} city={city}/>)
     }
 
     {
