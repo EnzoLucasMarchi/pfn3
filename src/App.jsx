@@ -19,7 +19,6 @@ function App() {
   const [dataF, setDataF] = useState({});
 
   const [location, setLocation] = useState({});
-  const [city, setCity] = useState('');
 
   const [measure, setMeasure] = useState(true);
   const [mod, setMod] = useState(false);
@@ -80,15 +79,6 @@ function App() {
     getData(url2, setDataF);
   }, []);
 
-  useEffect(() => {
-    console.log('current');
-    console.log(dataC);
-    console.log('forecast');
-    console.log(dataF);
-  }, [dataC, dataF]);
-
-
-
   //------------------------------------------------------------------------------------------------
 
   return (
@@ -98,7 +88,7 @@ function App() {
     }
 
     {
-      dataC && dataF && (<Principal dataC={dataC} dataF={dataF} setMeasure={setMeasure}/>)
+      dataC && dataF && (<Principal dataC={dataC} dataF={dataF} setMeasure={setMeasure} tcfn={tempConvert}/>)
     }
       
     </>
