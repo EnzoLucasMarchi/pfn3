@@ -44,10 +44,10 @@ function App() {
   };
 
   const tempConvert = (t) => {
-    if (measure){
+    if (measure) {
       t = parseFloat(t - 273.15).toFixed(2)
-    }else{
-      t = parseFloat((( t - 273.15) * (9/5) + 32)).toFixed(2)
+    } else {
+      t = parseFloat(((t - 273.15) * (9 / 5) + 32)).toFixed(2)
     }
 
     return t;
@@ -76,23 +76,25 @@ function App() {
   //-------------------------------------------------------------------------------------------useEffects
 
   useEffect(() => {
-   cityFilter('Helsinki')
+    cityFilter('Helsinki')
   }, []);
 
 
   //------------------------------------------------------------------------------------------------
 
   return (
-    <>
-    {
-      dataC && (<TodayWeather data={dataC} mod={mod} setMod={setMod} cityFilter={cityFilter}  ok={ok} err={err} ops={ops} tcfn={tempConvert} setCity={setCity} city={city}/>)
-    }
 
-    {
-      dataC && dataF && (<Principal dataC={dataC} dataF={dataF} setMeasure={setMeasure} tcfn={tempConvert}/>)
-    }
-      
-    </>
+
+      <div className="flex w-full h-full text-white">
+
+          <div  className="w-1/2 max-w-sm bg-blue-950">
+            {dataC && (<TodayWeather data={dataC} mod={mod} setMod={setMod} cityFilter={cityFilter} ok={ok} err={err} ops={ops} tcfn={tempConvert} setCity={setCity} city={city} />)}
+          </div>
+          <div  className="w-full bg-blue-950">
+              {dataC && dataF && (<Principal dataC={dataC} dataF={dataF} setMeasure={setMeasure} tcfn={tempConvert} />)}
+          </div>  
+      </div>
+
   );
 }
 

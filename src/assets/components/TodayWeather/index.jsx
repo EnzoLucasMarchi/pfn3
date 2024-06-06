@@ -13,12 +13,12 @@ export const TodayWeather = ({data, mod, setMod, cityFilter, ok, err, ops, tcfn,
       {mod === true &&
         <Modal setMod={setMod} cityFilter={cityFilter} setCity={setCity} city={city}/>
       }
-      <aside className="today-weather">
-        <div className="today-container">
+      <aside className="w-full h-full mt-2">
+        <div className="flex flex-col items-center gap-2">
 
-          <div className="aside-header">
-            <button className="btn-places" onClick={() => setMod(true)}>Search for Places</button>
-            <button className="btn-location" onClick={() => navigator.geolocation.watchPosition(ok, err, ops)}> Location</button>
+          <div className="flex gap-48">
+            <button className="bg-gray-600 w-40 rounded-lg" onClick={() => setMod(true)}>Search for Places</button>
+            <button className="bg-gray-600 w-6 h-6 rounded-lg" onClick={() => navigator.geolocation.watchPosition(ok, err, ops)}>*</button>
           </div>
 
           <figure className="today-icon-container">
