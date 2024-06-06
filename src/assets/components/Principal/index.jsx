@@ -1,11 +1,12 @@
 
 
 
-export const Principal = () => {
+export const Principal = ({dataC, dataF, setMeasure}) => {
     return(
         <section className="page-container">
         <div className="header">
-
+          <button onClick={()=>setMeasure(true)}>C</button>
+          <button onClick={()=>setMeasure(false)}>F</button>
         </div>
 
         <div className="page-body">

@@ -1,0 +1,98 @@
+import React from "react"
+import { useEffect } from "react"
+import { useState } from "react"
+
+
+
+// const apiKey = ''
+// const urlCurrentDay = https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+//const urlWeek = api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+
+function App() {
+  const [data, setData] = useState({})
+  const [filter, setFilter] = useState({})
+
+  const getData = async () => {
+    const rs = await ((await fetch('/apic.json')).json())
+    console.log(rs)
+    console.log(rs.main.temp)
+    setData(rs)
+    setFilter(rs)
+  }
+
+  useEffect(()=>{
+    
+    getData()
+  }, []);
+
+  return (
+    <>
+        <p>{data.main.temp}</p>
+    </>
+  )
+}
+
+export default App
+
+//---------------------------------------------------------------------
+
+
+  //const getLoc = async ({latitude, longitude})=>{
+    //try {
+      //const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`);
+      //if (!res.ok) {
+       // throw new Error(`Errorardo: ${res.statusText}`);
+      //}
+      //const rs = await res.json();
+    //} catch (err) {
+      //console.error('Errorovich:', err);
+    //}
+    //console.log('funciona loc')
+    //console.log(location)
+  //}
+
+
+  
+  //useEffect(() => {
+//if ('latitude' in location) {
+  //    getLoc(location)
+//}
+ // }, [location])
+
+Fechas:
+const formatDate = (date)=>{
+  let date = new Date(date*1000)
+  return date;
+}
+
+const fetchDate = async () => {
+  const res = await fetch (urlforecast)
+  const rs = await res.json()
+
+  let today = new Date();
+  const rsf = rs.list.filter(day =>{
+    let date = formatDate(day.dt)
+    if(date.getDate()>today.getDate()
+    ||date.getMonth()>today.getMonth()
+    ||date.getFullYear()>today.getFullYear()){
+      today=date
+      return day;
+    }
+  })
+  setDate(rsJson)
+}
+
+
+useEffect(()=>{
+  fetchDate()
+},[])
+
+
+  useEffect(() => {
+    const watchID = navigator.geolocation.watchPosition(ok, err, ops);
+    return () => {
+      navigator.geolocation.clearWatch(watchID);
+    };
+  }, []);
+
+
