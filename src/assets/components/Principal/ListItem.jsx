@@ -1,17 +1,15 @@
-export const ListItem = ({key, title, max, min, icon, tcfn}) => {
+export const ListItem = ({ title, max, min, icon, tcfn}) => {
     return (
         <>
-            <li key={key} className="days-item">
-                <div className="day-card">
+            <li className="border-8 border-green-500 flex flex-col items-center">
                     <h6>{title}</h6>
                     <figure className="day-icon-container">
-                        <img src={`/${icon}`} alt="icon" />
+                        <img src={`/assets/imgs/${icon}`} alt="icon" />
                     </figure>
-                    <div className="day-tems">
-                        <p>{tcfn(max)}</p>
-                        <p>{tcfn(min)}</p>
+                    <div className="border-8 border-red-500 w-full flex justify-between px-4">
+                        <p>{tcfn(max)}°C</p>
+                        <p>{tcfn(min)}°C</p>
                     </div>
-                </div>
             </li>
         </>
     )

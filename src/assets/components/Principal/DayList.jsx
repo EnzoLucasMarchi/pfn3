@@ -5,13 +5,12 @@ export const DayList = ({ dataF, tcfn}) => {
 
     return (
         <>
-            <div className="page-body">
-                <ul className="days-list">
+                <ul className="border-8 border-blue-500 flex gap-5">
                     {
                         dataF?.list && list.map(item => (
                             dataF.list[item] && (
                                 <ListItem
-                                    key={item}
+                                    id={dataF.list[item]?.dt_txt || item}
                                     title={dataF.list[item]?.dt_txt}
                                     max={dataF.list[item]?.main?.temp_max}
                                     min={dataF.list[item]?.main?.temp_min}
@@ -22,7 +21,6 @@ export const DayList = ({ dataF, tcfn}) => {
                         ))
                     }
                 </ul>
-            </div>
         </>
     );
 };

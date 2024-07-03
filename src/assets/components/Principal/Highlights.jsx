@@ -5,11 +5,11 @@ export const Highlights = ({ dataC}) => {
     const ap = dataC?.main?.pressure || '';
     return (
         <>
-            <div className="today-info-container">
-                <div className="today-header">
+            <div className="border-8 border-green-500">
+                <div className="today-header border-2 border-white ">
                     <h5>Today's Highlights</h5>
                 </div>
-                <div className="today-info">
+                <div className="border-2 border-white grid grid-cols-2 gap-4">
                     <div>
                         <p>Wind Status</p>
                         <p>{speed}mph</p>
@@ -19,18 +19,18 @@ export const Highlights = ({ dataC}) => {
                         </figure>
                     </div>
 
-                    <div>
+                    <div className="border-2 border-white ">
                         <p>Humidity</p>
                         <p>%{hum}</p>
                         <p>Range</p>
                     </div>
 
-                    <div>
+                    <div className="border-2 border-white ">
                         <p>Visibility</p>
                         <p>{parseFloat(vis / 100).toFixed(1)} milles</p>
                     </div>
 
-                    <div>
+                    <div className="border-2 border-white ">
                         <p>Air pressure</p>
                         <p>{ap} mb</p>
                     </div>

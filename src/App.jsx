@@ -45,7 +45,7 @@ function App() {
 
   const tempConvert = (t) => {
     if (measure) {
-      t = parseFloat(t - 273.15).toFixed(2)
+      t = parseFloat(t - 273.15).toFixed(0)
     } else {
       t = parseFloat(((t - 273.15) * (9 / 5) + 32)).toFixed(2)
     }
@@ -85,13 +85,17 @@ function App() {
   return (
 
 
-      <div className="flex w-full h-full text-white">
+      <div className="border-8 border-green-500 flex text-white font-raleway h-screen">
 
-          <div  className="w-1/2 max-w-sm bg-blue-950">
+          <div  className="border-8 border-blue-500 w-[30vw] max-w-sm bg-blue-950">
             {dataC && (<TodayWeather data={dataC} mod={mod} setMod={setMod} cityFilter={cityFilter} ok={ok} err={err} ops={ops} tcfn={tempConvert} setCity={setCity} city={city} />)}
           </div>
-          <div  className="w-full bg-blue-950">
+          <div  className="border-8 border-red-500 w-[70vw] h-full bg-blue-950 
+          flex flex-col items-center gap-4">
               {dataC && dataF && (<Principal dataC={dataC} dataF={dataF} setMeasure={setMeasure} tcfn={tempConvert} />)}
+              <div className="absolute text-xs mt-[90vh]">
+        <p>Esto lo hizo Enzo xd</p>
+      </div>
           </div>  
       </div>
 
