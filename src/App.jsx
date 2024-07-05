@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { TodayWeather } from "./assets/components/TodayWeather";
-import { Principal } from "./assets/components/Principal";
+import { TodayWeather } from "./components/TodayWeather";
+import { Principal } from "./components/Principal";
 
-// current = https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
-// cityC = https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-// locationC = 
-// forecast = https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-// cityF = https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-// locationF = 
 const key = '3d04268c3e1b494021dcfd045c458f0a'
 
-const url1 = '/apic.json';
-const url2 = '/apid.json';
-
 function App() {
+
   //----------------------------------------------------------------------------------useStates de la app
   const [dataC, setDataC] = useState({});
   const [dataF, setDataF] = useState({});
@@ -47,10 +39,16 @@ function App() {
     if (measure) {
       t = parseFloat(t - 273.15).toFixed(0)
     } else {
-      t = parseFloat(((t - 273.15) * (9 / 5) + 32)).toFixed(2)
+      t = parseFloat(((t - 273.15) * (9 / 5) + 32)).toFixed(0)
     }
 
     return t;
+  }
+
+  const dateFormat = (date) => {
+    const options = { weekday: 'short', day: 'numeric', month: 'short' };
+    const day = new Date(date);
+    return day.toLocaleDateString("en-gb", options);
   }
 
   //--------------------------------------------------------------------------funcion de GeoLocalizacion
@@ -74,31 +72,41 @@ function App() {
   //const watchID = navigator.geolocation.watchPosition(ok, err, ops);
 
   //-------------------------------------------------------------------------------------------useEffects
-
   useEffect(() => {
     cityFilter('Helsinki')
   }, []);
 
-
   //------------------------------------------------------------------------------------------------
-
   return (
-
-
-      <div className="border-8 border-green-500 flex text-white font-raleway h-screen">
-
-          <div  className="border-8 border-blue-500 w-[30vw] max-w-sm bg-blue-950">
-            {dataC && (<TodayWeather data={dataC} mod={mod} setMod={setMod} cityFilter={cityFilter} ok={ok} err={err} ops={ops} tcfn={tempConvert} setCity={setCity} city={city} />)}
-          </div>
-          <div  className="border-8 border-red-500 w-[70vw] h-full bg-blue-950 
-          flex flex-col items-center gap-4">
-              {dataC && dataF && (<Principal dataC={dataC} dataF={dataF} setMeasure={setMeasure} tcfn={tempConvert} />)}
-              <div className="absolute text-xs mt-[90vh]">
-        <p>Esto lo hizo Enzo xd</p>
+    <div className="flex font-raleway h-screen text-wordwhite">
+      <div className="w-[40vw] bg-softblue pb-10 pt-6 pl-3 pr-3">
+        {dataC && (<TodayWeather
+          data={dataC}
+          mod={mod}
+          setMod={setMod}
+          cityFilter={cityFilter}
+          ok={ok}
+          err={err}
+          ops={ops}
+          tcfn={tempConvert}
+          setCity={setCity}
+          city={city}
+          df={dateFormat} />)}
       </div>
-          </div>  
+      <div className="w-full h-full bg-darkestblue flex justify-between items-center flex-col gap-4 py-8">
+        {dataC && dataF && (<Principal
+          dataC={dataC}
+          dataF={dataF}
+          measure={measure}
+          setMeasure={setMeasure}
+          tcfn={tempConvert}
+          df={dateFormat}
+        />)}
+        <div className="absolute text-xs mt-[90vh]">
+          <p>Esto lo hizo Enzo xd</p>
+        </div>
       </div>
-
+    </div>
   );
 }
 

@@ -95,4 +95,10 @@ useEffect(()=>{
     };
   }, []);
 
-
+```JS
+  const dateFormat = (date) => {
+        const options = { weekday: 'short', day: 'numeric', month: 'short' };
+        const day = new Date(date);
+        return day.toLocaleDateString("en-gb", options);
+    }
+```
