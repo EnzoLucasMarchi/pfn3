@@ -3,7 +3,7 @@ import { Today } from "./Today";
 export const TodayWeather = ({ data, mod, setMod, cityFilter, ok, err, ops, tcfn, setCity, city, df }) => {
     return (
         <>
-            <aside className="w-full h-full mt-2">
+            <aside className="w-full h-full">
                 {mod === true ? (
                     <Modal
                         setMod={setMod}

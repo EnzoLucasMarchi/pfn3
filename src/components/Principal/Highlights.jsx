@@ -7,11 +7,11 @@ export const Highlights = ({ dataC }) => {
     const ap = dataC?.main?.pressure || '';
     return (
         <>
-            <div className="w-full flex flex-col gap-1 px-40">
+            <div className="w-full h-80 flex flex-col gap-1">
                 <div className="">
-                    <h5 className="text-2xl font-bold">Today's Highlights</h5>
+                    <h5 className="text-lg font-bold">Today's Highlights</h5>
                 </div>
-                <div className="grid grid-cols-2 gap-14 ">
+                <div className="grid grid-cols-2 gap-4 ">
                     <HighlightItem
                         title="Wind Status"
                         datavalue={speed}
