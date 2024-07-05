@@ -94,7 +94,7 @@ function App() {
           city={city}
           df={dateFormat} />)}
       </div>
-      <div className="w-[75%] h-full bg-darkestblue flex justify-between items-center flex-col gap-4">
+      <div className="w-[75%] h-full bg-darkestblue flex justify-between items-center flex-col gap-4 px-4">
         {dataC && dataF && (<Principal
           dataC={dataC}
           dataF={dataF}
@@ -103,7 +103,7 @@ function App() {
           tcfn={tempConvert}
           df={dateFormat}
         />)}
-        <div className="absolute text-xs mt-[90vh]">
+        <div className="absolute text-xs mt-[98vh]">
           <p>Esto lo hizo Enzo xd</p>
         </div>
       </div>
