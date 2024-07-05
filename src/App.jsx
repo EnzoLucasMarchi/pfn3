@@ -78,6 +78,10 @@ function App() {
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
     })
+    const lat = parseFloat(position.coords.latitude).toFixed(2)
+    const lon = parseFloat(position.coords.longitude).toFixed(2)
+    getData(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`, setDataC)
+    getData(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}`, setDataF)
   }
 
   function err() {
