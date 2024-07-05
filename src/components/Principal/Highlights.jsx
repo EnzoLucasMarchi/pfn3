@@ -8,11 +8,11 @@ export const Highlights = ({ dataC, wdfn }) => {
     const ap = dataC?.main?.pressure || '';
     return (
         <>
-            <div className="w-full h-80 flex flex-col gap-1">
+            <div className="w-full sm:h-80 flex flex-col gap-1 px-8 sm:px-0">
                 <div className="">
                     <h5 className="text-lg font-bold">Today's Highlights</h5>
                 </div>
-                <div className="grid grid-cols-2 gap-4 ">
+                <div className="flex flex-col items-center sm:grid sm:grid-cols-2 gap-4 ">
                     <HighlightItem
                         title="Wind Status"
                         datavalue={speed}
@@ -41,7 +41,7 @@ export const Highlights = ({ dataC, wdfn }) => {
                                         max="100"
                                         value={hum}
                                     />
-                                    <div className="absolute h-1 bg-yellow-400 rounded"
+                                    <div className="absolute h-1 bg-yellow-400 sm:rounded"
                                         style={{ width: `${hum}%` }}>
 
                                     </div>

@@ -5,7 +5,8 @@ export const DayList = ({ dataF, tcfn, df}) => {
 
     return (
         <>
-                <ul className="bg-darkestblue w-full flex justify-center gap-4">
+                <ul className="bg-darkestbluew-full grid 
+                grid-cols-2 sm:flex sm:justify-center gap-4 px-6 sm:px-0">
                     {
                         dataF?.list && list.map(item => (
                             dataF.list[item] && (

@@ -104,8 +104,8 @@ function App() {
   //------------------------------------------------------------------------------------------------
   // ---------- pb-10 pt-6 pl-3 pr-3 del contaienr del today
   return (
-    <div className="w-[100vw] h-[100vh] flex font-raleway text-wordwhite">
-      <div className="w-[25%] bg-softblue py-8 px-4">
+    <div className="w-[100vw] h-[100vh] sm:flex block font-raleway text-wordwhite">
+      <div className=" w-full sm:w-[25%] bg-softblue sm:py-8 sm:px-4">
         {dataC && (<TodayWeather
           data={dataC}
           mod={mod}
@@ -119,7 +119,7 @@ function App() {
           city={city}
           df={dateFormat} />)}
       </div>
-      <div className="w-[75%] h-full bg-darkestblue flex justify-between items-center flex-col gap-4 px-4">
+      <div className="sm:w-[75%] sm:h-full bg-darkestblue sm:flex sm:justify-between sm:items-center sm:flex-col sm:gap-4 sm:px-4">
         {dataC && dataF && (<Principal
           dataC={dataC}
           dataF={dataF}
