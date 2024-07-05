@@ -16,7 +16,7 @@ export const Today = ({ setMod, data, ok, err, ops, tcfn, df }) => {
                 </button>
             </div>
             <div className="w-full h-[90%] flex flex-col items-center justify-center py-2 gap-4">
-                <figure className="h-2/3 flex flex-col items-center justify-center px-4">
+                <figure className="flex flex-col items-center justify-center px-4">
                     <img className="" src={`/imgs/${icon}.png`} alt="icon" />
                 </figure>
                 <p className="text-6xl w-1/3 flex items-center justify-center">{tcfn(temp)}

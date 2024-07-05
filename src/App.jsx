@@ -51,6 +51,27 @@ function App() {
     return day.toLocaleDateString("en-gb", options);
   }
 
+  const windDirection = (degrees) => {
+    if (degrees === 0 || degrees === 360) return 'N';
+    if (degrees > 0 && degrees < 22.5) return 'N';
+    if (degrees === 22.5 || (degrees > 22.5 && degrees < 45)) return 'NNE';
+    if (degrees === 45 || (degrees > 45 && degrees < 67.5)) return 'NE';
+    if (degrees === 67.5 || (degrees > 67.5 && degrees < 90)) return 'ENE';
+    if (degrees === 90 || (degrees > 90 && degrees < 112.5)) return 'E';
+    if (degrees === 112.5 || (degrees > 112.5 && degrees < 135)) return 'ESE';
+    if (degrees === 135 || (degrees > 135 && degrees < 157.5)) return 'SE';
+    if (degrees === 157.5 || (degrees > 157.5 && degrees < 180)) return 'SSE';
+    if (degrees === 180 || (degrees > 180 && degrees < 202.5)) return 'S';
+    if (degrees === 202.5 || (degrees > 202.5 && degrees < 225)) return 'SSW';
+    if (degrees === 225 || (degrees > 225 && degrees < 247.5)) return 'SW';
+    if (degrees === 247.5 || (degrees > 247.5 && degrees < 270)) return 'WSW';
+    if (degrees === 270 || (degrees > 270 && degrees < 292.5)) return 'W';
+    if (degrees === 292.5 || (degrees > 292.5 && degrees < 315)) return 'WNW';
+    if (degrees === 315 || (degrees > 315 && degrees < 337.5)) return 'NW';
+    if (degrees === 337.5 || (degrees > 337.5 && degrees < 360)) return 'NNW';
+    return 'Invalid degrees';
+  };
+
   //--------------------------------------------------------------------------funcion de GeoLocalizacion
   function ok(position) {
     setLocation({
@@ -102,6 +123,7 @@ function App() {
           setMeasure={setMeasure}
           tcfn={tempConvert}
           df={dateFormat}
+          wdfn={windDirection}
         />)}
         <div className="absolute text-xs mt-[98vh]">
           <p>Esto lo hizo Enzo xd</p>
